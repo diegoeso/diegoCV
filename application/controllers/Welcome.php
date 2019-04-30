@@ -28,8 +28,8 @@ class Welcome extends CI_Controller
         $config = array(
             'protocol'    => 'smtp',
             'smtp_host'   => 'mail.gdsoft.com.mx',
-            'smtp_user'   => 'diego.sanchez@gdsoft.com.mx', //Su Correo de Gmail Aqui
-            'smtp_pass'   => 'B1zOTkkozK1K', // Su Password de Gmail aqui
+            'smtp_user'   => 'contacto@gdsoft.com.mx', //Su Correo de Gmail Aqui
+            'smtp_pass'   => 'diegokike68**', // Su Password de Gmail aqui
             'smtp_port'   => '587',
             'smtp_crypto' => 'tls',
             'mailtype'    => 'html',

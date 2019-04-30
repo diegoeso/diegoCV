@@ -22,67 +22,6 @@ class Welcome extends CI_Controller
         force_download($name, $cv);
     }
 
-    // public function enviar()
-    // {
-
-    //     //Cargamos la librería email
-    //     $this->load->library('email');
-
-    //     //Indicamos el protocolo a utilizar
-    //     $config['protocol'] = 'smtp';
-
-    //     //El servidor de correo que utilizaremos
-    //     $config["smtp_host"] = 'mail.gdsoft.com.mx';
-
-    //     //Nuestro usuario
-    //     $config["smtp_user"] = 'diego.sanchez@gdsoft.com.mx';
-
-    //     //Nuestra contraseña
-    //     $config["smtp_pass"] = 'B1zOTkkozK1K';
-
-    //     //El puerto que utilizará el servidor smtp
-    //     $config["smtp_port"] = '587';
-
-    //     //El juego de caracteres a utilizar
-    //     $config['charset'] = 'utf-8';
-
-    //     //Permitimos que se puedan cortar palabras
-    //     $config['wordwrap'] = true;
-
-    //     //El email debe ser valido
-    //     $config['validate'] = true;
-
-    //     //Establecemos esta configuración
-    //     $this->email->initialize($config);
-
-    //     //Ponemos la dirección de correo que enviará el email y un nombre
-    //     $this->email->from($this->input->post('email'), $this->input->post('nombre'));
-
-    //     /*
-    //      * Ponemos el o los destinatarios para los que va el email
-    //      * en este caso al ser un formulario de contacto te lo enviarás a ti
-    //      * mismo
-    //      */
-    //     $this->email->to('diego.enrique76@gmail.com', 'Diego Enrique Sánchez Ordoñez');
-
-    //     //Definimos el asunto del mensaje
-    //     $this->email->subject($this->input->post("asunto"));
-
-    //     //Definimos el mensaje a enviar
-    //     $this->email->message(
-    //         "Email: " . $this->input->post("email") .
-    //         " Mensaje: " . $this->input->post("mensaje")
-    //     );
-
-    //     //Enviamos el email y si se produce bien o mal que avise con una flasdata
-    //     if ($this->email->send()) {
-    //         echo "Se envio el correo";
-    //     } else {
-    //         echo "No se envio el correo";
-    //     }
-
-    // }
-
     public function enviar()
     {
         $config = array(
@@ -104,11 +43,14 @@ class Welcome extends CI_Controller
         $this->email->to('diego.sanchez@gdsoft.com.mx');
         $this->email->cc('diego.enrique76@gmail.com');
         if ($this->email->send(false)) {
-            echo "enviado<br/>";
-            echo $this->email->print_debugger(array('headers'));
+            redirect(base_url());
+            // echo "enviado<br/>";
+            // echo $this->email->print_debugger(array('headers'));
         } else {
-            echo "fallo <br/>";
-            echo "error: " . $this->email->print_debugger(array('headers'));
+
+            redirect(base_url());
+            // echo "fallo <br/>";
+            // echo "error: " . $this->email->print_debugger(array('headers'));
         }
     }
 

@@ -22,7 +22,7 @@
 	<meta name="twitter:card" content="" />
 
 
-	<link rel="shortcut icon" href="favicon.ico">
+	<!--<link rel="shortcut icon" href="<?php echo base_url() ?>assets/images/favicon.ico">-->
 
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
@@ -62,7 +62,7 @@
 				</div>
 			</nav>
 
-			<div class="colorlib-footer" style="background-color: grey">
+<!--			<div class="colorlib-footer" style="background-color: grey">
 				<ul>
 					<li><a href="#"><i class="icon-facebook2"></i></a></li>
 					<li><a href="#"><i class="icon-twitter2"></i></a></li>
@@ -70,14 +70,14 @@
 					<li><a href="#"><i class="icon-linkedin2"></i></a></li>
 				</ul>
 			</div>
-
+-->
 		</aside>
 
 		<div id="colorlib-main">
 			<section id="colorlib-hero" class="js-fullheight" data-section="home">
 				<div class="flexslider js-fullheight">
 					<ul class="slides">
-				   	<li style="background-image: url(assets/images/img_bg_1.jpg);">
+				   	<li style="background-image: url(assets/images/back4.png);">
 				   		<div class="overlay"></div>
 				   		<div class="container-fluid">
 				   			<div class="row">
@@ -766,6 +766,42 @@
 							</div>
 						</div>
 					</div>
+
+					<!--<div class="row text-center">
+						<div class="col-md-4">
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-text">
+									<p><a href="https://www.facebook.com/diego.enriqueSO" target="_blank">
+										<div class="colorlib-icon">
+									<i class="fab fa-github"></i>
+								</div>
+									</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-text">
+									<p><a href="https://www.facebook.com/diego.enriqueSO" target="_blank">
+										<div class="colorlib-icon">
+									<i class="fab fa-github"></i>
+								</div>
+									</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-text">
+									<p><a href="https://www.facebook.com/diego.enriqueSO" target="_blank">
+										<div class="colorlib-icon">
+									<i class="fab fa-github"></i>
+								</div>
+									</a></p>
+								</div>
+							</div>
+						</div>
+					</div>-->
 				</div>
 			</section>
 			<!--<section class="colorlib-blog" data-section="blog">

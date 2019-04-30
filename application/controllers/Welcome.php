@@ -24,6 +24,7 @@ class Welcome extends CI_Controller
 
     public function enviar()
     {
+
         $config = array(
             'protocol'    => 'smtp',
             'smtp_host'   => 'mail.gdsoft.com.mx',
@@ -43,13 +44,10 @@ class Welcome extends CI_Controller
         $this->email->to('diego.sanchez@gdsoft.com.mx');
         $this->email->cc('diego.enrique76@gmail.com');
         if ($this->email->send(false)) {
-            redirect(base_url());
-            // echo "enviado<br/>";
+            echo "enviado";
             // echo $this->email->print_debugger(array('headers'));
         } else {
-
-            redirect(base_url());
-            // echo "fallo <br/>";
+            echo "fallo";
             // echo "error: " . $this->email->print_debugger(array('headers'));
         }
     }

@@ -33,6 +33,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/toastnotify.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<script src="<?php echo base_url() ?>assets/js/modernizr-2.6.2.min.js"></script>
 	</head>
@@ -744,21 +745,21 @@
 						<div class="col-md-7 col-md-push-1">
 							<div class="row">
 								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
-									<form action="<?php echo base_url('welcome/enviar') ?>" method="post">
+									<form method="post">
 										<div class="form-group">
-											<input type="text" name="nombre" class="form-control" placeholder="Nombre" required="">
+											<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required="">
 										</div>
 										<div class="form-group">
-											<input type="text" name="email" class="form-control" placeholder="Correo Electronico" required="">
+											<input type="text" name="email" id="email" class="form-control" placeholder="Correo Electronico" required="">
 										</div>
 										<div class="form-group">
-											<input type="text" name="asunto" class="form-control" placeholder="Asunto" required="">
+											<input type="text" name="asunto" id="asunto" class="form-control" placeholder="Asunto" required="">
 										</div>
 										<div class="form-group">
-											<textarea name="mensaje" id="message" cols="30" rows="7" class="form-control" placeholder="Mensaje" required=""></textarea>
+											<textarea name="mensaje" id="mensaje" cols="30" rows="7" class="form-control" placeholder="Mensaje" required=""></textarea>
 										</div>
 										<div class="form-group">
-											<input type="submit" class="btn btn-primary btn-send-message" value="Enviar">
+											<input id="btn_enviar" class="btn btn-primary btn-send-message" value="Enviar">
 										</div>
 									</form>
 								</div>
@@ -855,7 +856,6 @@
 		</div>
 	</div>
 	</div>
-
 	<script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/jquery.easing.1.3.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
@@ -864,6 +864,43 @@
 	<script src="<?php echo base_url() ?>assets/js/owl.carousel.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/jquery.countTo.js"></script>
 	<script src="<?php echo base_url() ?>assets/js/main.js"></script>
+	<script src="<?php echo base_url() ?>assets/js/toastnotify.js"></script>
+
+	<script type="text/javascript">
+		var baseurla = "<?php echo base_url(); ?>";
+		var url = "<?php echo base_url('welcome/enviar') ?>";
+
+		$('#btn_enviar').click(function(){
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: {
+					nombre: $('#nombre').val(),
+					email: $('#email').val(),
+					asunto: $('#asunto').val(),
+					mensaje: $('#mensaje').val(),
+				},
+				success:function(response){
+					if(response == "enviado"){
+						Toastnotify.create({
+			                text: "Correo enviado exitosamente! :D",
+			                type: "success",
+			            });
+						$('#nombre').val("");
+						$('#email').val("");
+						$('#asunto').val("");
+						$('#mensaje').val("");
+					}else{
+						Toastnotify.create({
+			                text: "No se pudo enviar el correo electronico, prueba otro medio.",
+			                type: "warning",
+			            });
+					}
+				}
+			});
+
+		});
+	</script>
 	</body>
 </html>
 
